@@ -115,6 +115,22 @@ body.cursor-hover .cursor {
     color: var(--text-secondary);
 }
 
+.status-message {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    min-height: 20px;
+    transition: all 0.3s ease;
+}
+
+.status-message.success {
+    color: #3ba55d;
+}
+
+.status-message.error {
+    color: #ed4245;
+}
+
 .footer {
     position: fixed;
     bottom: 40px;
